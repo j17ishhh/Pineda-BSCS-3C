@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jhayron Pineda | Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: black;
+            color: white;
+        }
+
+        nav {
+            background: #111;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #444;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #aaa;
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 80px 10%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #home {
+            background: black;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .home-text,
+        .home-image {
+            flex: 1;
+        }
+
+        .home-text h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .home-text p {
+            font-size: 20px;
+            color: #ccc;
+        }
+
+        .home-image {
+            text-align: center;
+        }
+
+        .home-image img {
+            width: 300px;
+            height: 300px;
+            max-width: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+
+        #about {
+            background: #0d0d0d;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        #about p {
+            max-width: 700px;
+            font-size: 18px;
+            color: #ccc;
+        }
+
+        #outputs {
+            background: black;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        #outputs > p {
+            color: #ccc;
+        }
+
+        .outputs-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .output-card {
+            background: #181818;
+            color: white;
+            width: 280px;
+            padding: 30px 20px;
+            border-radius: 12px;
+            text-align: left;
+            border: 1px solid #444;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .output-card:hover {
+            transform: translateY(-5px);
+            background: #252525;
+        }
+
+        .output-card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .output-card p {
+            color: #ccc;
+        }
+
+        #works-display {
+            display: none;
+            background: #181818;
+            color: white;
+            margin-top: 40px;
+            padding: 30px;
+            width: 100%;
+            max-width: 900px;
+            border-radius: 12px;
+            text-align: left;
+            border: 1px solid #444;
+        }
+
+        .work-item {
+            padding: 15px;
+            margin: 10px 0;
+            background: #252525;
+            border-radius: 8px;
+        }
+
+        .work-item h3 {
+            margin-bottom: 5px;
+        }
+
+        .work-item p {
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+
+        .work-item a {
+            color: white;
+            font-weight: bold;
+        }
+
+        .work-item a:hover {
+            color: #ccc;
+        }
+
+        @media (max-width: 768px) {
+            #home {
+                flex-direction: column;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .home-text h1 {
+                font-size: 36px;
+            }
+
+            .home-image img {
+                width: 220px;
+                height: 220px;
+            }
+
+            nav a {
+                margin: 0 7px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#outputs">Outputs</a>
+    </nav>
+
+    <section id="home">
+        <div class="home-text">
+            <h1>Hello, I'm Jhayron Pineda!</h1>
+            <p>Welcome to my personal portfolio website.</p>
+        </div>
+
+        <div class="home-image">
+            <img src="profile.jpg" alt="Profile Picture of Jhayron Pineda">
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            Hello! I am Jhayron Pineda, a Computer Science student who is
+            interested in exploring the world of technology and how things work.
+            This portfolio contains my academic outputs and works.
+        </p>
+    </section>
+
+    <section id="outputs">
+        <h2>My Outputs</h2>
+        <p>Click a category to view my works!</p>
+
+        <div class="outputs-container">
+            <div class="output-card" onclick="showWorks('assignments')">
+                <h3>Assignments</h3>
+                <p>View my completed assignments and activities.</p>
+            </div>
+
+            <div class="output-card" onclick="showWorks('quizzes')">
+                <h3>Quizzes</h3>
+                <p>View my quizzes and assessments.</p>
+            </div>
+
+            <div class="output-card" onclick="showWorks('labs')">
+                <h3>Laboratory Activities</h3>
+                <p>View my laboratory and programming activities.</p>
+            </div>
+        </div>
+
+        <div id="works-display"></div>
+    </section>
+
+    <script>
+        function showWorks(category) {
+            const display = document.getElementById("works-display");
+            display.style.display = "block";
+
+            if (category === "assignments") {
+                display.innerHTML = `
+                    <h2>📝 My Assignments</h2>
+
+                    <div class="work-item">
+                        <h3>Assignment 1</h3>
+                        <p>Description of assignment.</p>
+                        <a href="#">View Work</a>
+                    </div>
+
+                    <div class="work-item">
+                        <h3>Assignment 2</h3>
+                        <p>Description of assignment.</p>
+                        <a href="#">View Work</a>
+                    </div>
+                `;
+            }
+
+            if (category === "quizzes") {
+                display.innerHTML = `
+                    <h2>📋 My Quizzes</h2>
+
+                    <div class="work-item">
+                        <h3>Quiz 1</h3>
+                        <p>Description or topic of quiz.</p>
+                        <a href="#">View Work</a>
+                    </div>
+
+                    <div class="work-item">
+                        <h3>Quiz 2</h3>
+                        <p>Description or topic of quiz.</p>
+                        <a href="#">View Work</a>
+                    </div>
+                `;
+            }
+
+            if (category === "labs") {
+                display.innerHTML = `
+                    <h2>💻 My Laboratory Works</h2>
+
+                    <div class="work-item">
+                        <h3>Lab Activity 1</h3>
+                        <p>Description of laboratory activity.</p>
+                        <a href="#">View Work</a>
+                    </div>
+
+                    <div class="work-item">
+                        <h3>Lab Activity 2</h3>
+                        <p>Description of laboratory activity.</p>
+                        <a href="#">View Work</a>
+                    </div>
+                `;
+            }
+        }
+    </script>
+
+</body>
+</html>
